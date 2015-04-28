@@ -1,12 +1,13 @@
 module Capistrano
   module DSL
     module Chef
-      def chef_role(name, query = '*:*', arg)
+      def chef_role(name, query = '*:*', **options)
+        arg = options.delete(:attribute) || :ipaddress
+
         search_proc = case arg
                       when Proc
                         arg
                       when Hash
-                        arg = arg.delete(:attribute) || :ipaddress
                         iface, family = arg.keys.first.to_s, arg.values.first.to_s
                         Proc.new do |n|
                           addresses = n["network"]["interfaces"][iface]["addresses"]
