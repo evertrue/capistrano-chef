@@ -19,7 +19,7 @@ Gem::Specification.new do |s|
   s.require_paths = ["lib"]
   s.add_dependency 'capistrano', '>= 3'
   s.add_dependency 'chef', '>= 0.10.10'
-  s.add_dependency 'awsutils', '~> 1.4', '> 1.4.0'
+  s.add_dependency 'awsutils', '~> 1.4', '>= 1.4.0'
   s.add_development_dependency 'rspec', '~> 3.0'
 end
 
